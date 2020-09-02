@@ -1,0 +1,28 @@
+
+cd SP2/target8888
+
+//gdb
+gdb ctarget
+//breakpoint at function
+(gdb) b getbuf
+
+//Dump of assembler code for function getbuf
+(gdb) disas getbuf
+(gdb) quit
+
+(gdb) info registers
+
+(gdb) x/s *address
+
+//dump assembly code to file
+objdump -d rtarget > rtarget_dump.txt
+
+//create file
+cat > phase1sol.txt
+^C
+
+//covert solution to raw for attack injection
+./hex2raw < phase1sol.txt > phase1raw.txt
+
+//attack!
+./ctarget < phase1raw.txt
